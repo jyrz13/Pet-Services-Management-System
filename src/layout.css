@@ -15,11 +15,17 @@ html,body {
     color: #FFF;
     background-color: #2FD4C5;
 }
-
 .alt-logo {
     font-size: 4rem;
 }
-
+.indexbutton {
+    color: #FFF;
+    background-color: transparent;
+    border-top: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
+    border-left: transparent;
+}
 .tagline {
     font-size: 3rem;
 }
@@ -91,12 +97,23 @@ html,body {
 /*** Browser/index ***/
 #browser-wrapper {
     /**background: url("../images/theater.jpg") no-repeat center center fixed;*/
+    position: center;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
 }
+
+/*.centered
+{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -245px; /* Width of image /2 */
+ /* margin-top: -50px;  Height of image /2 */
+} */
+
 /*** Search Fields ***/
 
 #browser-wrapper .search-wrapper {
