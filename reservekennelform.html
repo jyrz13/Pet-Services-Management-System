@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>  
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>  
+
+<?php
+// define variables and set to empty values
+$reservationidErr = $customeridErr = $reservationstartErr = $reservationendErr = $kennelidErr = "";
+$reservationid = $customerid = $reservationstart = $reservationend = $kennelid = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (empty($_POST["reservationid"])) {
+    $reservationidErr = "Reservation ID is required";
+  } else {
+    $reservationid = test_input($_POST["reservationid"]);
+  }
+  
+  if (empty($_POST["customerid"])) {
+    $customeridErr = "Customer ID is required";
+  } else {
+    $customerid = test_input($_POST["customerid"]);
+  }
+    
+  if (empty($_POST["reservationstart"])) {
+    $reservationstartErr = "Reservation Start is required";
+  } else {
+    $reservationstart = test_input($_POST["reservationstart"]);
+  }
+
+  if (empty($_POST["reservationend"])) {
+    $reservationendErr = "Reservation End is required";
+  } else {
+    $reservationend = test_input($_POST["reservationend"]);
+  }
+
+  if (empty($_POST["kennelid"])) {
+    $kennelidErr = "Kennel ID is required";
+  } else {
+    $kennelid = test_input($_POST["kennelid"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<h2>Reserve Kennel</h2>
+    
+<p><span class="error">* required field</span></p>
+    
+<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+    
+  Reservation ID: <input type="number" name="reservationid">
+  <span class="error">* <?php echo $firstnameErr;?> </span>
+  <br><br>
+  Customer ID: <input type="number" name="customerid">
+  <span class="error">* <?php echo $lastnameErr;?></span>
+  <br><br>
+  Reservation Start: <input type="date" name="reservationstart">
+  <span class="error"><?php echo $dateofbirthErr;?></span>
+  <br><br>
+  Reservation End: <input type="date" name="reservationend">
+  <span class="error"><?php echo $phonenumberErr;?></span>
+  <br><br>
+  Kennel ID: <input type="number" name="kennelid">
+  <span class="error"><?php echo $emailErr;?></span>
+  <br><br>
+  <input type="submit" name="submit" value="Check">
+  <input type="submit" name="submit" value="Reserve">
+    
+</form>
+
+    
+<?php
+echo "<h2>Your Input for testing is:</h2>";
+echo $reservationid;
+echo "<br>";
+echo $customerid;
+echo "<br>";
+echo $reservationstart;
+echo "<br>";
+echo $reservationend;
+echo "<br>";
+echo $kennelid;
+echo "<br>";
+?>
+
+</body>
+</html> 
