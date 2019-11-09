@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>  
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>  
+
+<?php
+// define variables and set to empty values
+$firstnameErr = $lastnameErr = $dateofbirthErr = $phonenumberErr = $emailErr = "";
+$firstname = $lastname = $dateofbirth = $phonenumber = $email = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (empty($_POST["firstname"])) {
+    $firstnameErr = "First Name is required";
+  } else {
+    $firstname = test_input($_POST["firstname"]);
+  }
+  
+  if (empty($_POST["classid"])) {
+    $lastnameErr = "Last Name is required";
+  } else {
+    $lastname = test_input($_POST["lastname"]);
+  }
+    
+  if (empty($_POST["dateofbirth"])) {
+    $dateofbirthErr = "Date of Birth is required";
+  } else {
+    $dateofbirth = test_input($_POST["dateofbirth"]);
+  }
+
+  if (empty($_POST["phonenumber"])) {
+    $phonenumberErr = "Phone Number is required";
+  } else {
+    $phonenumber = test_input($_POST["phonenumber"]);
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<h2>Register Customer</h2>
+    
+<p><span class="error">* required field</span></p>
+    
+<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+    
+  First Name: <input type="char" name="firstname">
+  <span class="error">* <?php echo $firstnameErr;?> </span>
+  <br><br>
+  Last Name: <input type="char" name="lastname">
+  <span class="error">* <?php echo $lastnameErr;?></span>
+  <br><br>
+  Date of Birth: <input type="date" name="dateofbirth">
+  <span class="error"><?php echo $dateofbirthErr;?></span>
+  <br><br>
+  Phone Number: <input type="number" name="phonenumber">
+  <span class="error"><?php echo $phonenumberErr;?></span>
+  <br><br>
+  Email: <input type="email" name="email">
+  <span class="error"><?php echo $emailErr;?></span>
+  <br><br>    
+  <input type="submit" name="submit" value="Register">
+    
+</form>
+
+    
+<?php
+echo "<h2>Your Input for testing is:</h2>";
+echo $firstname;
+echo "<br>";
+echo $lastname;
+echo "<br>";
+echo $dateofbirth;
+echo "<br>";
+echo $phonenumber;
+echo "<br>";
+echo $email;
+echo "<br>";
+?>
+
+</body>
+</html> 
