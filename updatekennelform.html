@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>  
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>  
+
+<?php
+// define variables and set to empty values
+$kennelidErr = $oldlocationErr = $newlocationErr = $staffidErr = $olddaysErr = $newdaysErr = $oldstarttimeErr = $newstarttimeErr = $oldendtimeErr = $newendtimeErr = "";
+$kennelid = $oldlocation = $newlocation = $staffid = $olddays = $newdays = $oldstarttime = $newstarttime = $oldendtime = $newendtime = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+  if (empty($_POST["kennelid"])) {
+    $kennelidErr = "Kennel ID is required";
+  } else {
+    $kennelid = test_input($_POST["kennelid"]);
+  }
+    
+  if (empty($_POST["staffid"])) {
+    $staffidErr = "Staff ID is required";
+  } else {
+    $staffid = test_input($_POST["staffid"]);
+  }
+
+  if (empty($_POST["oldlocation"])) { 
+    $oldlocationErr = "Old Location is required";
+  } else {
+    $oldlocation = test_input($_POST["oldlocation"]);
+  }
+
+  if (empty($_POST["newlocation"])) { 
+    $newlocationErr = "New Location is required";
+  } else {
+    $newlocation = test_input($_POST["newlocation"]);
+  }
+
+  if (empty($_POST["olddays"])) {
+    $olddaysErr = "Old Days is required";
+  } else {
+    $olddays = test_input($_POST["olddays"]);
+  }
+
+  if (empty($_POST["newdays"])) {
+    $newdaysErr = "New Days is required";
+  } else {
+    $newdays = test_input($_POST["newdays"]);
+  }
+
+  if (empty($_POST["oldstarttime"])) {
+    $oldstarttimeErr = "Old Start Time is required";
+  } else {
+    $oldstarttime = test_input($_POST["oldstarttime"]);
+  }
+
+  if (empty($_POST["newstarttime"])) {
+    $newstarttimeErr = "New Start Time is required";
+  } else {
+    $newstarttime = test_input($_POST["newstarttime"]);
+  }
+
+  if (empty($_POST["oldendtime"])) {
+    $oldendtimeErr = "Old End Time is required";
+  } else {
+    $oldendtime = test_input($_POST["oldendtime"]);
+  }
+
+  if (empty($_POST["newendtime"])) {
+    $newendtimeErr = "New End Time is required";
+  } else {
+    $newendtime = test_input($_POST["newendtime"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<h2>Update Kennel</h2>
+    
+<p><span class="error">* required field</span></p>
+    
+<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+    
+  Kennel ID: <input type="number" name="kennelid">
+  <span class="error">* <?php echo $kennelidErr;?></span>
+  <br><br>
+  Staff ID: <input type="number" name="staffid">
+  <span class="error"><?php echo $staffidErr;?></span>
+  <br><br>
+  Old Location:
+  <input type="radio" name="oldlocation" value="A"> A
+  <input type="radio" name="oldlocation" value="B"> B
+  <input type="radio" name="oldlocation" value="C"> C
+  <span class="error"> <?php echo $oldloactionErr;?></span>
+  <br><br>
+  New Location:
+  <input type="radio" name="newlocation" value="A"> A
+  <input type="radio" name="newlocation" value="B"> B
+  <input type="radio" name="newlocation" value="C"> C
+  <span class="error">* <?php echo $newloactionErr;?></span>
+  <br><br>
+  Old Days: 
+  <input type="checkbox" name="olddays" value="M"> Monday
+  <input type="checkbox" name="olddays" value="T"> Tuesday
+  <input type="checkbox" name="olddays" value="W"> Wednesday   
+  <input type="checkbox" name="olddays" value="TR"> Thursday   
+  <input type="checkbox" name="olddays" value="F"> Friday   
+  <input type="checkbox" name="olddays" value="S"> Saturday   
+  <span class="error"><?php echo $olddaysErr;?></span>
+  <br><br>
+  New Days: 
+  <input type="checkbox" name="newdays" value="M"> Monday
+  <input type="checkbox" name="newdays" value="T"> Tuesday
+  <input type="checkbox" name="newdays" value="W"> Wednesday   
+  <input type="checkbox" name="newdays" value="TR"> Thursday   
+  <input type="checkbox" name="newdays" value="F"> Friday   
+  <input type="checkbox" name="newdays" value="S"> Saturday   
+  <span class="error">* <?php echo $newdaysErr;?></span>
+  <br><br>
+  Old Start Time: <input type="time" name="oldstarttime">
+  <span class="error"><?php echo $oldstarttimeErr;?></span>
+  <br><br>
+  New Start Time: <input type="time" name="newstarttime">
+  <span class="error">* <?php echo $newstarttimeErr;?></span>
+  <br><br>
+  Old End Time: <input type="time" name="oldendtime">
+  <span class="error"><?php echo $oldendtimeErr;?></span>
+  <br><br>
+  New End Time: <input type="time" name="newendtime">
+  <span class="error">* <?php echo $newendtimeErr;?></span>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">
+    
+</form>
+
+    
+<?php
+echo "<h2>Your Input for testing is:</h2>";
+echo $kennelid;
+echo "<br>";
+echo $staffid;
+echo "<br>";
+echo $oldlocation;
+echo "<br>";
+echo $newlocation;
+echo "<br>";
+echo $olddays;
+echo "<br>";
+echo $newdays;
+echo "<br>";
+echo $oldstarttime;
+echo "<br>";
+echo $newstarttime;
+echo "<br>";
+echo $oldendtime;
+echo $newendtime;
+?>
+
+</body>
+</html> 
