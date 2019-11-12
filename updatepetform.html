@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>  
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>  
+
+<?php
+// define variables and set to empty values
+$petidErr = $oldnameErr = $olddateofbirthErr = newnameErr = $newdateofbirthErr = $"";
+$petid = $oldname = $olddateofbirth = $newname = $newdateofbirth = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (empty($_POST["petid"])) {
+    $petidErr = "Pet ID is required";
+  } else {
+    $petid = test_input($_POST["petid"]);
+  }
+
+ if (empty($_POST["oldname"])) {
+    $oldnameErr = "Old Name is required";
+  } else {
+    $oldfirstname = test_input($_POST["oldfirstname"]);
+  }
+    
+  if (empty($_POST["olddateofbirth"])) {
+    $olddateofbirthErr = "Old Date of Birth is required";
+  } else {
+    $olddateofbirth = test_input($_POST["olddateofbirth"]);
+  }
+
+  if (empty($_POST["newname"])) {
+    $newnameErr = "New Name is required";
+  } else {
+    $newname = test_input($_POST["firstname"]);
+  }
+  
+  if (empty($_POST["newdateofbirth"])) {
+    $dateofbirthErr = "New Date of Birth is required";
+  } else {
+    $newdateofbirth = test_input($_POST["newdateofbirth"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<h2>Update Pet</h2>
+    
+<p><span class="error">* required field</span></p>
+    
+<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+    
+  Pet ID: <input type="number" name="petid">
+  <span class="error">* <?php echo $sectionErr;?> </span>
+  <br><br>    
+    
+  Old Name: <input type="char" name="oldfirstname">
+  <span class="error">* <?php echo $sectionErr;?> </span>
+  <br><br>
+  Old Date of Birth: <input type="date" name="olddateofbirth">
+  <span class="error"><?php echo $staffidErr;?></span>
+  <br><br>
+    
+  New Name: <input type="char" name="firstname">
+  <span class="error">* <?php echo $sectionErr;?> </span>
+  <br><br>
+  New Date of Birth: <input type="date" name="dateofbirth">
+  <span class="error"><?php echo $staffidErr;?></span>
+  <br><br>
+  <input type="submit" name="submit" value="Update">    
+    
+</form>
+
+    
+<?php
+echo "<h2>Your Input for testing is:</h2>";
+echo $petid;
+echo "<br>";
+echo $oldname;
+echo "<br>";
+echo $olddateofbirth;
+echo "<br>";
+echo $newname;
+echo "<br>";
+echo $newdateofbirth;
+echo "<br>";
+?>
+
+</body>
+</html> 
