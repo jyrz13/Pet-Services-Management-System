@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PET SERVICES MANAGEMENT SYSTEM</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- jquery UI -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!--Custom Stylesheet-->
+    <link rel="stylesheet" href="src/layout.css" type="text/css">
+    <!--Api stuff-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+     <script type="text/javascript" src="src/tbh.js"></script>
+    <script type="text/javascript" src="src/tbh.js"></script>
+    <script type="text/javascript" src="src/tbh.js"></script>
+    <script type="text/javascript" src="src/tbh.js"></script>
+    <script type="text/javascript" src="src/tbh.js"></script>
+        <script> 
+        $(function(){
+         $("#includedContent").load("testingform2.html"); 
+        });
+        </script>
+</head>
+
+<body>
+    <div class="header-wrapper">
+        <header id="header" class="jumbotron jumbotron-fluid text-center">
+            <!--TODO: Combine title and logo in a single image-->
+            <h1 class="logo">
+                <a href="index.html">
+                    <img src="images/doglogo.jpg" width="5%" height="4%" alt="logo" />
+                </a>
+                <div class="alt-logo">
+                    <button  class="indexbutton" onclick="document.location='index.html'">PET SERVICES MANAGEMENT SYSTEM</button>
+                </div>
+                <div class="tagline">Welcoming All Pets!</div>
+            </h1>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div id="nav-wrapper" class="container-fluid">
+                <ul class="nav navbar-nav">
+                    
+  
+ 
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Class</a>
+                    <div class="dropdown-menu">
+                        <button class="btn" id="btn" onclick="document.location='createclass.html'">Create Class</button>
+                        <button class="btn" id="btn" onclick="document.location='updateclass.html'">Update Class</button>
+                        <button class="btn" id="btn" onclick="document.location='cancelclass.html'">Cancel Class</button>
+                    </div>
+                </div> 
+                    
+                    
+                    
+                    
+                    
+                    
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kennel</a>
+                    <div class="dropdown-menu">
+                        <button class="btn" id="btn" onclick="document.location='kennelavailability.html'">Kennel Availability</button>
+                        <button class="btn" id="btn" onclick="document.location='updatekennel.html'">Update Kennel</button>
+                        <button class="btn" id="btn" onclick="document.location='cancelkennel.html'">Cancel Kennel</button>
+                    </div>
+                </div>    
+                    
+                    
+                    
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Customer</a>
+                    <div class="dropdown-menu">
+                        <button class="btn" id="btn" onclick="document.location='registercustomer.html'">Register Customer</button>
+                        <button class="btn" id="btn" onclick="document.location='updatecustomer.html'">Update Customer</button>
+                        <button class="btn" id="btn" onclick="document.location='reserveclass.html'">Reserve Class</button>
+                        <button class="btn" id="btn" onclick="document.location='cancelclass.html'">Cancel Class</button>
+                        <button class="btn" id="btn" onclick="document.location='reservekennel.html'"> Reserve Kennel</button>
+                        <button class="btn" id="btn" onclick="document.location='cancelkennel.html'">Cancel Kennel</button>
+                    </div>
+                </div> 
+                    
+                    
+                    
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pet</a>
+                    <div class="dropdown-menu">
+                        <button class="btn" id="btn" onclick="document.location='registerpet.html'">Register Pet</button>
+                        <button class="btn" id="btn" onclick="document.location='updatepet.html'">Update Pet</button>
+                    </div>
+                </div>
+                    
+                </ul>
+
+            </div>
+        </nav>
+    </div>
+    
+    
+    <div id="browser-wrapper" class="content-wrapper">
+    
+        <div class="centered" >
+        
+        
+            <div id="includedContent"></div>
+
+            <?php include "C:\Users\jyrz1\Desktop\FD website\action.php"?>
+            
+        </div>
+        
+        
+    </div>
+    
+    
+    <footer id="footer">
+        <p>St. Mary's University Files and Database Project, Fall 2019</p>
+        <p>Jeremy Ramirez | Matthew Christman | Huy Nguyen</p>
+    </footer>
+
+
+</body>
+
+</html>
