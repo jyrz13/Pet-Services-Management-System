@@ -6,149 +6,50 @@
 </head>
 <body>  
 
-<?php
-// define variables and set to empty values
-$oldfirstnameErr = $oldlastnameErr = $olddateofbirthErr = $oldphonenumberErr = $oldemailErr = firstnameErr = $lastnameErr = $dateofbirthErr = $phonenumberErr = $emailErr = $"";
-$firstname = $lastname = $dateofbirth = $phonenumber = $email = $firstname = $lastname = $dateofbirth = $phonenumber = $email = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
- if (empty($_POST["oldfirstname"])) {
-    $oldfirstnameErr = "Old First Name is required";
-  } else {
-    $oldfirstname = test_input($_POST["oldfirstname"]);
-  }
-  
-  if (empty($_POST["oldclassid"])) {
-    $oldlastnameErr = "Old Last Name is required";
-  } else {
-    $oldlastname = test_input($_POST["oldlastname"]);
-  }
-    
-  if (empty($_POST["olddateofbirth"])) {
-    $olddateofbirthErr = "Old Date of Birth is required";
-  } else {
-    $olddateofbirth = test_input($_POST["olddateofbirth"]);
-  }
-
-  if (empty($_POST["oldphonenumber"])) {
-    $oldphonenumberErr = "Old Phone Number is required";
-  } else {
-    $oldphonenumber = test_input($_POST["oldphonenumber"]);
-  }
-
-  if (empty($_POST["oldemail"])) {
-    $emailErr = "Old Email is required";
-  } else {
-    $oldemail = test_input($_POST["oldemail"]);
-  }
-
-
-  if (empty($_POST["firstname"])) {
-    $firstnameErr = "First Name is required";
-  } else {
-    $firstname = test_input($_POST["firstname"]);
-  }
-  
-  if (empty($_POST["classid"])) {
-    $lastnameErr = "Last Name is required";
-  } else {
-    $lastname = test_input($_POST["lastname"]);
-  }
-    
-  if (empty($_POST["dateofbirth"])) {
-    $dateofbirthErr = "Date of Birth is required";
-  } else {
-    $dateofbirth = test_input($_POST["dateofbirth"]);
-  }
-
-  if (empty($_POST["phonenumber"])) {
-    $phonenumberErr = "Phone Number is required";
-  } else {
-    $phonenumber = test_input($_POST["phonenumber"]);
-  }
-
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
 
 <h2>Update Customer</h2>
     
 <p><span class="error">* required field</span></p>
     
-<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+<form method="post" action=" http://10.102.22.99:8080/api/customer/updateCustomer?id=1 "> 
     
   Old First Name: <input type="char" name="oldfirstname">
-  <span class="error">* <?php echo $sectionErr;?> </span>
+  <span class="error"> </span>
   <br><br>
   Old Last Name: <input type="char" name="oldlastname">
-  <span class="error">* <?php echo $classidErr;?></span>
+  <span class="error"> </span>
   <br><br>
   Old Date of Birth: <input type="date" name="olddateofbirth">
-  <span class="error"><?php echo $staffidErr;?></span>
+  <span class="error"> </span>
   <br><br>
   Old Phone Number: <input type="number" name="oldphonenumber">
-  <span class="error"><?php echo $staffidErr;?></span>
+  <span class="error"> ></span>
   <br><br>
   Old Email: <input type="email" name="oldemail">
-  <span class="error"><?php echo $staffidErr;?></span>
+  <span class="error"> </span>
   <br><br>    
 
     
-  First Name: <input type="char" name="firstname">
-  <span class="error">* <?php echo $sectionErr;?> </span>
+  New First Name: <input type="char" name="newfirstname">
+  <span class="error"> </span>
   <br><br>
-  Last Name: <input type="char" name="lastname">
-  <span class="error">* <?php echo $classidErr;?></span>
+  New Last Name: <input type="char" name="newlastname">
+  <span class="error"> ></span>
   <br><br>
-  Date of Birth: <input type="date" name="dateofbirth">
-  <span class="error"><?php echo $staffidErr;?></span>
+  New Date of Birth: <input type="date" name="newdateofbirth">
+  <span class="error"> </span>
   <br><br>
-  Phone Number: <input type="number" name="phonenumber">
-  <span class="error"><?php echo $staffidErr;?></span>
+  New Phone Number: <input type="number" name="newphonenumber">
+  <span class="error"> </span>
   <br><br>
-  Email: <input type="email" name="email">
-  <span class="error"><?php echo $staffidErr;?></span>
+  New Email: <input type="email" name="newemail">
+  <span class="error"> </span>
   <br><br>    
   <input type="submit" name="submit" value="Update">    
     
 </form>
 
     
-<?php
-echo "<h2>Your Input for testing is:</h2>";
-echo $oldfirstname;
-echo "<br>";
-echo $oldlastname;
-echo "<br>";
-echo $olddateofbirth;
-echo "<br>";
-echo $oldphonenumber;
-echo "<br>";
-echo $oldemail;
-echo "<br>";
-echo $firstname;
-echo "<br>";
-echo $lastname;
-echo "<br>";
-echo $dateofbirth;
-echo "<br>";
-echo $phonenumber;
-echo "<br>";
-echo $email;
-echo "<br>";
-?>
 
 </body>
 </html> 
