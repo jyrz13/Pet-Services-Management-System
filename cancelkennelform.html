@@ -6,35 +6,7 @@
 </head>
 <body>  
 
-<?php
-// define variables and set to empty values
-$kennelidErr = $staffidErr = "";
-$kennelid = $staffid = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
-  if (empty($_POST["kenneid"])) {
-    $kennelidErr = "Kennel ID is required";
-  } else {
-    $kennelid = test_input($_POST["kennelid"]);
-  }
     
-  if (empty($_POST["staffid"])) {
-    $staffidErr = "Staff ID is required";
-  } else {
-    $staffid = test_input($_POST["staffid"]);
-  }
-
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
-
 <h2>Cancel Kennel</h2>
     
 <p><span class="error">* required field</span></p>
@@ -42,23 +14,15 @@ function test_input($data) {
 <form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
     
   Kennel ID: <input type="number" name="kennelid">
-  <span class="error">* <?php echo $kennelidErr;?></span>
+  <span class="error"> </span>
   <br><br>
   Staff ID: <input type="number" name="staffid">
-  <span class="error"><?php echo $staffidErr;?></span>
+  <span class="error"> </span>
   <br><br>
   <input type="submit" name="submit" value="Submit">
     
 </form>
 
-    
-<?php
-echo "<h2>Your Input for testing is:</h2>";
-echo $kennelid;
-echo "<br>";
-echo $staffid;
-echo "<br>";
-?>
 
 </body>
 </html> 
