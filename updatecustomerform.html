@@ -11,43 +11,41 @@
     
 <p><span class="error">* required field</span></p>
     
-<form method="post" action=" http://10.102.22.99:8080/api/customer/updateCustomer?id=1 "> 
-    
-  Old First Name: <input type="char" name="oldfirstname">
-  <span class="error"> </span>
-  <br><br>
-  Old Last Name: <input type="char" name="oldlastname">
-  <span class="error"> </span>
-  <br><br>
-  Old Date of Birth: <input type="date" name="olddateofbirth">
-  <span class="error"> </span>
-  <br><br>
-  Old Phone Number: <input type="number" name="oldphonenumber">
-  <span class="error"> ></span>
-  <br><br>
-  Old Email: <input type="email" name="oldemail">
-  <span class="error"> </span>
-  <br><br>    
+<iframe name="hiddenFrame" class="hide" id="user_output"></iframe>
+  
 
     
-  New First Name: <input type="char" name="newfirstname">
+<form method="get" action=" http://10.102.22.99:8080/api/customer/getCustomerId" target="hiddenFrame2"> 
+    Email: <input type="email" name="email">
   <span class="error"> </span>
+  <br><br> 
+  <input type="submit" name="submit" value="Find_ID"  >
   <br><br>
-  New Last Name: <input type="char" name="newlastname">
-  <span class="error"> ></span>
+  <iframe class ="box" name="hiddenFrame2";></iframe>
   <br><br>
-  New Date of Birth: <input type="date" name="newdateofbirth">
-  <span class="error"> </span>
-  <br><br>
-  New Phone Number: <input type="number" name="newphonenumber">
-  <span class="error"> </span>
-  <br><br>
-  New Email: <input type="email" name="newemail">
-  <span class="error"> </span>
-  <br><br>    
-  <input type="submit" name="submit" value="Update">    
+</form>    
+   
     
+<form method="post" action=" http://10.102.22.99:8080/api/customer/updateCustomer" target="hiddenFrame" id="form1">   
+  ID: <input type="number" name="id">
+  <span class="error"> </span>
+  <br><br>
+  New First Name: <input type="char" name="fname">
+  <span class="error"> </span>
+  <br><br>
+  New Email: <input type="email" name="email">
+  <span class="error"> </span>
+  <br><br>
+  New Last Name: <input type="char" name="lname">
+  <span class="error"> </span>
+  <br><br>
+  New Phone Number: <input type="number" name="phone_Number">
+  <span class="error"> </span>
+  <br><br>
+  <input type="submit" name="submit" value="Update">      
 </form>
+    
+   
 
     
 

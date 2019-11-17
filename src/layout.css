@@ -169,6 +169,10 @@ width: 40%;
 .hide {
     display: none;
 }
+
+.hide2 { 
+    position:absolute; top:-1px; left:-1px; width:1px; height:1px; 
+}
 /*
   instead of adding 'even' and 'odd' to every <tr> tag, just add <table class="stripe">...</table>
   use 'stripe--nested' for tables that have expanding rows of details. Must have a thead around <th> tags
@@ -209,8 +213,24 @@ width: 40%;
     text-align: right;
 }
 
+#form1 {
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+}
 
-
+.box {
+    text-align: center;
+    color: #FFF;
+    background-color: transparent;
+    border-top: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    width: 39px;
+    height: 45px;    
+}
 
 
 
