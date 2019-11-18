@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
-    <script type="text/javascript">function cancelkennel(){alert("Kennel Canceled");}</script>
+    <script type="text/javascript">function kennelcreated(){alert("Kennel Created");}</script>
 <style>
 </style>
 </head>
@@ -9,13 +9,13 @@
 
 
 
-<h2>Cancel Kennel</h2>
+<h2>New Kennel</h2>
     
 <p><span class="error">* required field</span></p>
     
 <iframe name="hiddenFrame" class="hide" id="user_output"></iframe>    
     
-<form method="post" action="http://10.102.22.99:8080/api/kennel/deleteKennel" target="hiddenFrame2"> 
+<form method="post" action="http://10.102.22.99:8080/api/kennel/newKennel" target="hiddenFrame2"> 
     
   Kennel ID: <input type="number" name="kennel_Id">
   <span class="error"></span>
@@ -29,7 +29,10 @@
   Department Number: <input type="number" name="dnumber">
   <span class="error"></span>
   <br><br>
-  <input type="submit" name="submit" value="Cancel Kennel" onClick="cancelkennel()">
+  Availability: <input type="text" name="available">
+  <span class="error"></span>
+  <br><br>
+  <input type="submit" name="submit" value="Update Kennel" onClick="kennelupdated()">
   <br><br>
   <iframe class="box3" name="hiddenFrame2"></iframe>    
     

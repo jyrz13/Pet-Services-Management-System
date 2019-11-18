@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
+    <script type="text/javascript">function classupdated(){alert("Class Updated");}</script>
 <style>
 </style>
 </head>
@@ -11,60 +12,19 @@
     
 <p><span class="error">* required field</span></p>
     
-<form method="post" action="  "> 
+<iframe name="hiddenFrame" class="hide" id="user_output"></iframe>    
     
-  Section: <input type="char" name="section">
-  <span class="error"> </span>
+<form method="post" action="http://10.102.22.99:8080/api/class/updateClass" target="hiddenFrame2"> 
+    
+  Class ID: <input type="number" name="id">
+  <span class="error"></span>
   <br><br>
-  Class ID: <input type="number" name="classid">
-  <span class="error"> </span>
+  Class Description: <input type="text" name="class_desc">
+  <span class="error"></span>
   <br><br>
-  Staff ID: <input type="number" name="staffid">
-  <span class="error"> </span>
+  <input type="submit" name="submit" value="Update Class" onClick="classupdated()">
   <br><br>
-  Old Location:
-  <input type="radio" name="oldlocation" value="A"> A
-  <input type="radio" name="oldlocation" value="B"> B
-  <input type="radio" name="oldlocation" value="C"> C
-  <span class="error">  </span>
-  <br><br>
-  New Location:
-  <input type="radio" name="newlocation" value="A"> A
-  <input type="radio" name="newlocation" value="B"> B
-  <input type="radio" name="newlocation" value="C"> C
-  <span class="error"> </span>
-  <br><br>
-  Old Days: 
-  <input type="checkbox" name="olddays" value="M"> Monday
-  <input type="checkbox" name="olddays" value="T"> Tuesday
-  <input type="checkbox" name="olddays" value="W"> Wednesday   
-  <input type="checkbox" name="olddays" value="TR"> Thursday   
-  <input type="checkbox" name="olddays" value="F"> Friday   
-  <input type="checkbox" name="olddays" value="S"> Saturday   
-  <span class="error"> </span>
-  <br><br>
-  New Days: 
-  <input type="checkbox" name="newdays" value="M"> Monday
-  <input type="checkbox" name="newdays" value="T"> Tuesday
-  <input type="checkbox" name="newdays" value="W"> Wednesday   
-  <input type="checkbox" name="newdays" value="TR"> Thursday   
-  <input type="checkbox" name="newdays" value="F"> Friday   
-  <input type="checkbox" name="newdays" value="S"> Saturday   
-  <span class="error"> </span>
-  <br><br>
-  Old Start Time: <input type="time" name="oldstarttime">
-  <span class="error"> </span>
-  <br><br>
-  New Start Time: <input type="time" name="newstarttime">
-  <span class="error"> </span>
-  <br><br>
-  Old End Time: <input type="time" name="oldendtime">
-  <span class="error"> </span>
-  <br><br>
-  New End Time: <input type="time" name="newendtime">
-  <span class="error"> </span>
-  <br><br>
-  <input type="submit" name="submit" value="Submit">
+  <iframe class="box2" name="hiddenFrame2";></iframe> 
     
 </form>
 
