@@ -6,71 +6,31 @@
 </head>
 <body>  
 
-<?php
-// define variables and set to empty values
-$kennelidErr = $locationErr = $isitavailable = "";
-$kennelid = $location = $isitavailable = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
-  if (empty($_POST["kennelid"])) {
-    $kennelidErr = "Kennel Id is required";
-  } else {
-    $kennelid = test_input($_POST["kennelid"]);
-  }
-    
-  if (empty($_POST["location"])) {
-    $locationErr = "Loaction is required";
-  } else {
-    $location = test_input($_POST["location"]);
-  }
-
-  if (empty($_POST["isitavailable"])) {
-    $isitavailableErr = "NOT required";
-  } else {
-    $isitavailable = test_input($_POST["isitavailable"]);
-  }
-
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
 
 <h2>Kennel Availability</h2>
     
 <p><span class="error">* required field</span></p>
     
-<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+<form method="get" action=" http://10.102.22.99:8080/api/kennel/getKennelsByBuilding" target="hiddenFrame"> 
+  Department Number: <input type="number" name="dnumber">
+  <span class="error"> </span>
+  <br><br> 
     
-  Kennel ID: <input type="number" name="kennelid">
-  <span class="error">* <?php echo $kennelidErr;?></span>
+  Building Number:
+  <input type="radio" name="buildingNumber" value="1"> 1
+  <input type="radio" name="buildingNumber" value="2"> 2
+  <input type="radio" name="buildingNumber" value="3"> 3
+  <span class="error"> </span>
+  <br><br> 
+  <input type="submit" name="submit" value="Get Kennel Availability ID's"  >
   <br><br>
-  Staff ID: <input type="number" name="staffid">
-  <span class="error"><?php echo $staffidErr;?></span>
+  <iframe class ="box2" name="hiddenFrame";></iframe>
   <br><br>
-  <input type="submit" name="submit" value="Submit">
-  <br><br>
-  Availability: <input type="number" name="isitavailable">
-  <span class="error"><?php echo $isitavailableErr;?></span>
-  <br><br>
-    
 </form>
 
     
-<?php
-echo "<h2>Your Input for testing is:</h2>";
-echo $kennelid;
-echo "<br>";
-echo $staffid;
-echo "<br>";
-echo $isitavailable;
-echo "<br>";
-?>
+
 
 </body>
 </html> 
