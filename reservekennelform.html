@@ -6,92 +6,71 @@
 </head>
 <body>  
 
-<?php
-// define variables and set to empty values
-$reservationidErr = $customeridErr = $reservationstartErr = $reservationendErr = $kennelidErr = "";
-$reservationid = $customerid = $reservationstart = $reservationend = $kennelid = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-  if (empty($_POST["reservationid"])) {
-    $reservationidErr = "Reservation ID is required";
-  } else {
-    $reservationid = test_input($_POST["reservationid"]);
-  }
-  
-  if (empty($_POST["customerid"])) {
-    $customeridErr = "Customer ID is required";
-  } else {
-    $customerid = test_input($_POST["customerid"]);
-  }
-    
-  if (empty($_POST["reservationstart"])) {
-    $reservationstartErr = "Reservation Start is required";
-  } else {
-    $reservationstart = test_input($_POST["reservationstart"]);
-  }
-
-  if (empty($_POST["reservationend"])) {
-    $reservationendErr = "Reservation End is required";
-  } else {
-    $reservationend = test_input($_POST["reservationend"]);
-  }
-
-  if (empty($_POST["kennelid"])) {
-    $kennelidErr = "Kennel ID is required";
-  } else {
-    $kennelid = test_input($_POST["kennelid"]);
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
-
 <h2>Reserve Kennel</h2>
     
 <p><span class="error">* required field</span></p>
     
-<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+
+  
+<form method="get" action=" http://10.102.22.99:8080/api/kennel/getKennelsByBuilding" target="hiddenFrame2"> 
+  Department Number: <input type="number" name="dnumber">
+  <span class="error"> </span>
+  <br><br> 
     
-  Reservation ID: <input type="number" name="reservationid">
-  <span class="error">* <?php echo $firstnameErr;?> </span>
+  Building Number:
+  <input type="radio" name="buildingNumber" value="1"> 1
+  <input type="radio" name="buildingNumber" value="2"> 2
+  <input type="radio" name="buildingNumber" value="3"> 3
+  <span class="error"> </span>
+  <br><br> 
+  <input type="submit" name="submit" value="Get Kennel ID's"  >
   <br><br>
-  Customer ID: <input type="number" name="customerid">
-  <span class="error">* <?php echo $lastnameErr;?></span>
+  <iframe class ="box2" name="hiddenFrame2";></iframe>
   <br><br>
-  Reservation Start: <input type="date" name="reservationstart">
-  <span class="error"><?php echo $dateofbirthErr;?></span>
-  <br><br>
-  Reservation End: <input type="date" name="reservationend">
-  <span class="error"><?php echo $phonenumberErr;?></span>
-  <br><br>
-  Kennel ID: <input type="number" name="kennelid">
-  <span class="error"><?php echo $emailErr;?></span>
-  <br><br>
-  <input type="submit" name="submit" value="Check">
-  <input type="submit" name="submit" value="Reserve">
+</form>     
     
+<form method="get" action=" http://10.102.22.99:8080/api/pet/findByCustomer" target="hiddenFrame3"> 
+    Email: <input type="string" name="email">
+  <span class="error"> </span>
+  <br><br> 
+  <input type="submit" name="submit" value="Get Pet ID"  >
+  <br><br>
+  <iframe class ="box2" name="hiddenFrame3";></iframe>
+  <br><br>
+</form>     
+    
+<form method="post" action=" http://10.102.22.99:8080/api/reservation/kennel/newReservation" target="hiddenFrame"> 
+    
+  Reservation Start: <input type="date" name="startDate">
+  <span class="error"> </span>
+  <br><br>
+  Reservation End: <input type="date" name="endDate">
+  <span class="error"> </span>
+  <br><br>
+  Building Number:
+  <input type="radio" name="building_number" value="1"> 1
+  <input type="radio" name="building_number" value="2"> 2
+  <input type="radio" name="building_number" value="3"> 3
+  <span class="error"> </span>
+  <br><br>
+    Room Number: <input type="number" name="room_number">
+  <span class="error"> </span>
+  <br><br>
+    Department Number: <input type="number" name="dnum">
+  <span class="error"> </span>
+  <br><br>
+  Kennel ID: <input type="number" name="kennel_id">
+  <span class="error"> </span>
+  <br><br>
+    Pet ID: <input type="number" name="pet_id">
+  <span class="error"> </span>
+  <br><br>
+  <input type="submit" name="submit" value="Reserve kennel">
+  <br><br>
+  <iframe class="box2" name="hiddenFrame"  id="user_output"></iframe>
 </form>
 
     
-<?php
-echo "<h2>Your Input for testing is:</h2>";
-echo $reservationid;
-echo "<br>";
-echo $customerid;
-echo "<br>";
-echo $reservationstart;
-echo "<br>";
-echo $reservationend;
-echo "<br>";
-echo $kennelid;
-echo "<br>";
-?>
 
 </body>
 </html> 

@@ -9,19 +9,17 @@
 
 <h2>Update Customer</h2>
     
-<p><span class="error">* required field</span></p>
-    
-<iframe name="hiddenFrame" class="hide" id="user_output"></iframe>
-  
+<p><span class="error">* required field</span></p>  
 
     
 <form method="get" action=" http://10.102.22.99:8080/api/customer/getCustomerId" target="hiddenFrame2"> 
-    Email: <input type="email" name="email">
+    
+  Email: <input type="email" name="email">
   <span class="error"> </span>
   <br><br> 
   <input type="submit" name="submit" value="Find_ID"  >
   <br><br>
-  <iframe class ="box" name="hiddenFrame2";></iframe>
+  <iframe class ="box1" name="hiddenFrame2";></iframe>
   <br><br>
 </form>    
    
@@ -42,7 +40,9 @@
   New Phone Number: <input type="number" name="phone_Number">
   <span class="error"> </span>
   <br><br>
-  <input type="submit" name="submit" value="Update">      
+  <input type="submit" name="submit" value="Update">
+  <br><br>
+  <iframe class="box2" name="hiddenFrame" id="user_output"></iframe>
 </form>
     
    

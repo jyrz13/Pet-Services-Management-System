@@ -6,69 +6,34 @@
 </head>
 <body>  
 
-<?php
-// define variables and set to empty values
-$classidErr = $petidErr = $staffidErr = $"";
-$classid = $petid = $staffid = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-  if (empty($_POST["classid"])) {
-    $classidErr = "Class ID is required";
-  } else {
-    $class = test_input($_POST["classid"]);
-  }
-
-  if (empty($_POST["petid"])) {
-    $petidErr = "Pet ID is required";
-  } else {
-    $petid = test_input($_POST["petid"]);
-  }
-
-  if (empty($_POST["staffid"])) {
-    $staffErr = "Staff ID is required";
-  } else {
-    $staffid = test_input($_POST["staffid"]);
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
 
 <h2>Cancel Class</h2>
     
 <p><span class="error">* required field</span></p>
     
-<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+
     
-  Class ID: <input type="number" name="classid">
-  <span class="error">* <?php echo $classidErr;?> </span>
+<form method="get" action=" http://10.102.22.99:8080/api/reservation/class/getReservationByCustomer" target="hiddenFrame2"> 
+  Email: <input type="email" name="email">
+  <span class="error"> </span>
+  <br><br> 
+  <input type="submit" name="submit" value="Retrieve Classes"  >
   <br><br>
-  Pet ID: <input type="number" name="petid">
-  <span class="error">* <?php echo $petidErr;?></span>
+  <iframe class ="box2" name="hiddenFrame2";></iframe>
   <br><br>
-  Staff ID: <input type="number" name="staffid">
-  <span class="error"><?php echo $staffidErr;?></span>
-  <br><br>
-  <input type="submit" name="submit" value="Cancel">    
+</form>
     
+<form method="post" action=" http://10.102.22.99:8080/api/reservation/class/cancelReservation" target="hiddenFrame"> 
+    
+  Reservation ID: <input type="number" name="id">
+  <span class="error"> </span>
+  <br><br>
+  <input type="submit" name="submit" value="Cancel Class">
+  <br><br>
+  <iframe class="box3" name="hiddenFrame"  ></iframe>
 </form>
 
-    
-<?php
-echo "<h2>Your Input for testing is:</h2>";
-echo $classid;
-echo "<br>";
-echo $petid;
-echo "<br>";
-echo $staffid;
-echo "<br>";
-?>
 
 </body>
-</html> 
+</html>  

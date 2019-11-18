@@ -6,69 +6,37 @@
 </head>
 <body>  
 
-<?php
-// define variables and set to empty values
-$nameErr = $dateofbirthErr = $petidErr = $"";
-$name = $dateofbirth = $petid = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-  } else {
-    $name = test_input($_POST["name"]);
-  }
-
-  if (empty($_POST["dateofbirth"])) {
-    $dateofbirthErr = "Date of Birth is required";
-  } else {
-    $dateofbirth = test_input($_POST["dateofbirth"]);
-  }
-
-  if (empty($_POST["petid"])) {
-    $petidErr = "Pet ID is required";
-  } else {
-    $petid = test_input($_POST["petid"]);
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
 
 <h2>Register Pet</h2>
     
 <p><span class="error">* required field</span></p>
     
-<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
     
-  Name: <input type="char" name="name">
-  <span class="error">* <?php echo $nameErr;?> </span>
+<form method="get" action=" http://10.102.22.99:8080/api/customer/getCustomerId" target="hiddenFrame2">
+    
+  Email: <input type="string" name="email">
+  <span class="error"> </span>
+  <br><br> 
+  <input type="submit" name="submit" value="Get Customer ID"  >
   <br><br>
-  Date of Birth: <input type="date" name="dateofbirth">
-  <span class="error"><?php echo $dateofbirthErr;?></span>
+  <iframe class ="box1" name="hiddenFrame2";></iframe>
   <br><br>
-  Pet ID: <input type="number" name="petid">
-  <span class="error">* <?php echo $petidErr;?></span>
+</form>     
+    
+<form method="post" action=" http://10.102.22.99:8080/api/pet/newPet" target="hiddenFrame" >
+    
+  Customer ID: <input type="char" name="customer_id">
+  <span class="error"> </span>
   <br><br>
-  <input type="submit" name="submit" value="Register">    
+  Pet Name: <input type="string" name="pet_name">
+  <span class="error"> </span>
+  <br><br>
+  <input type="submit" name="submit" value="Register Pet"> 
+  <br><br>
+  <iframe class ="box2" name="hiddenFrame";></iframe>
     
 </form>
 
-    
-<?php
-echo "<h2>Your Input for testing is:</h2>";
-echo $name;
-echo "<br>";
-echo $dateofbirth;
-echo "<br>";
-echo $petid;
-echo "<br>";
-?>
 
 </body>
 </html> 

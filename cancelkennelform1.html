@@ -6,58 +6,43 @@
 </head>
 <body>  
 
-<?php
-// define variables and set to empty values
-$kennelidErr = $staffidErr = "";
-$kennelid = $staffid = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-  if (empty($_POST["kennelid"])) {
-    $kennelidErr = "Kennel ID is required";
-  } else {
-    $kennelid = test_input($_POST["kennelid"]);
-  }
-
-  if (empty($_POST["staffid"])) {
-    $staffErr = "Staff ID is required";
-  } else {
-    $staffid = test_input($_POST["staffid"]);
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-?>
-
+    
 <h2>Cancel Kennel</h2>
     
 <p><span class="error">* required field</span></p>
+        
+<form method="get" action=" http://10.102.22.99:8080/api/pet/findByCustomer" target="hiddenFrame2">
     
-<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
-    
-  Kennel ID: <input type="number" name="kennelid">
-  <span class="error">* <?php echo $classidErr;?> </span>
+  Email: <input type="string" name="email">
+  <span class="error"> </span>
+  <br><br> 
+  <input type="submit" name="submit" value="Get Pet ID's"  >
   <br><br>
-  Staff ID: <input type="number" name="staffid">
-  <span class="error"><?php echo $staffidErr;?></span>
+  <iframe class ="box2" name="hiddenFrame2";></iframe>
   <br><br>
-  <input type="submit" name="submit" value="Cancel">    
+</form> 
     
+<form method="get" action=" http://10.102.22.99:8080/api/reservation/class/getClassReservationByPet" target="hiddenFrame3">
+    
+  Pet ID: <input type="string" name="id">
+  <span class="error"> </span>
+  <br><br> 
+  <input type="submit" name="submit" value="Get Reservation ID's"  >
+  <br><br>
+  <iframe class ="box2" name="hiddenFrame3";></iframe>
+  <br><br>
+</form> 
+    
+<form method="post" action=" http://10.102.22.99:8080/api/reservation/kennel/cancelReservation" target="hiddenFrame">  
+    
+   Reservation ID: <input type="number" name="id">
+  <span class="error"> </span>
+  <br><br>
+  <input type="submit" name="submit" value="Cancel Kennel Reservation">   
+  <br><br>
+  <iframe class ="box3" name="hiddenFrame"  id="user_output"></iframe>
 </form>
-
-    
-<?php
-echo "<h2>Your Input for testing is:</h2>";
-echo $kennelid;
-echo "<br>";
-echo $staffid;
-echo "<br>";
-?>
 
 </body>
 </html> 
