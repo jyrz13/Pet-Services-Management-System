@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>  
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>  
+
+<h2>Reserve Kennel</h2>
+    
+<p><span class="error">* required field</span></p>
+
+<form method="get" action="http://10.102.22.99:8080/api/kennel/getKennelsByBuilding"> 
+    
+  Department Number: <input type="number" name="dnumber">
+  <span class="error"></span>
+  <br><br>
+  Building Number: <input type="number" name="buildingNumber">
+  <span class="error"></span>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">
+  <br><br>
+</form>
+    
+<form method="get" action="http://10.102.22.99:8080/api/kennel/getKennelsByRoom">
+  Department Number: <input type="number" name="dnumber">
+  <span class="error"></span>
+  <br><br>
+  Building Number: <input type="number" name="buildingNumber">
+  <span class="error"></span>
+  <br><br>
+  Room Number: <input type="number" name="roomNumber">
+  <span class="error"></span>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">
+  <br><br>
+    
+</form>
+    
+</body>
+</html> 
