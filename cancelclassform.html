@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>  
 <html>
-    need to be changed!!!!!!
 <head>
  <script type="text/javascript">function classdeleted(){alert("Class Deleted");}</script>
 <style>
@@ -15,6 +14,14 @@
 <p><span class="error">* required field</span></p>
     
 <iframe name="hiddenFrame" class="hide" id="user_output"></iframe>    
+    
+<form method="get" action=" http://10.80.1.1:8080/api/class all" target="hiddenFrame2"> 
+  
+  <input type="submit" name="submit" value="Get Classes"  >
+  <br><br>
+  <iframe class ="box2" name="hiddenFrame2";></iframe>
+  <br><br>
+</form>     
     
 <form method="post" action=" http://10.102.22.99:8080/api/class/deleteClass" target="hiddenFrame"> 
     
