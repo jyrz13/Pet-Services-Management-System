@@ -12,31 +12,20 @@
     
 <p><span class="error">* required field</span></p>
         
-<form method="get" action=" http://10.80.1.1:8080/api/pet/findByCustomer" target="hiddenFrame2">
+<form method="get" action=" http://10.80.1.1:8080/api/reservation/kennel/getKennelReservationByCustomer" target="hiddenFrame2">
     
   Email: <input type="string" name="email">
   <span class="error"> </span>
   <br><br> 
-  <input type="submit" name="submit" value="Get Pet ID's"  >
+  <input type="submit" name="submit" value="Get Kennel Reservation ID's"  >
   <br><br>
   <iframe class ="box2" name="hiddenFrame2";></iframe>
   <br><br>
 </form> 
     
-<form method="get" action=" http://10.80.1.1:8080/api/reservation/class/getClassReservationByPet" target="hiddenFrame3">
-    
-  Pet ID: <input type="string" name="id">
-  <span class="error"> </span>
-  <br><br> 
-  <input type="submit" name="submit" value="Get Reservation ID's"  >
-  <br><br>
-  <iframe class ="box2" name="hiddenFrame3";></iframe>
-  <br><br>
-</form> 
-    
 <form method="post" action=" http://10.80.1.1:8080/api/reservation/kennel/cancelReservation" target="hiddenFrame">  
     
-   Reservation ID: <input type="number" name="id">
+  Kennel Reservation ID: <input type="number" name="id">
   <span class="error"> </span>
   <br><br>
   <input type="submit" name="submit" value="Cancel Kennel Reservation">   
